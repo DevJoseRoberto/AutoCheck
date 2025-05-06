@@ -1,0 +1,1 @@
+Esse projeto tem como intuito focar no sistema de transito referentes a multas sobre o veiculo do usuario tem tempo real , podendo adicionar mais de um veiculo a sua conta, pagar a multa na aplicaçao tendo uma tela amigavel.
