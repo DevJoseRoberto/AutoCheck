@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículo - AutoCheck</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body class="body3">
+    <div class="container3">
+        <h2>Cadastro de Veículo</h2>
+        <form id="formCadastroVeiculo">
+            <div class="campo">
+                <label for="placa">Placa do Veículo:</label>
+                <input type="text" id="placa" name="placa" placeholder="Ex: ABC1D23" required maxlength="7">
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="renavam">RENAVAM:</label>
+                <input type="text" id="renavam" name="renavam" placeholder="Ex: 12345678901" required maxlength="11">
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" placeholder="Ex: Fiat" required>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" placeholder="Ex: Mobi" required>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="anoFabricacao">Ano de Fabricação:</label>
+                <input type="number" id="anoFabricacao" name="anoFabricacao" placeholder="Ex: 2023" required min="1900" max="2099">
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="cor">Cor:</label>
+                <input type="text" id="cor" name="cor" placeholder="Ex: Branco" required>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="tipoCombustivel">Tipo de Combustível:</label>
+                <select id="tipoCombustivel" name="tipoCombustivel" required>
+                    <option value="">Selecione...</option>
+                    <option value="gasolina">Gasolina</option>
+                    <option value="etanol">Etanol</option>
+                    <option value="flex">Flex</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="eletrico">Elétrico</option>
+                </select>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="campo">
+                <label for="numeroChassi">Número do Chassi:</label>
+                <input type="text" id="numeroChassi" name="numeroChassi" placeholder="Ex: 9BWxxxxxxxxxxxxxx" required maxlength="17">
+                <small class="error-message"></small>
+            </div>
+            
+            <button class="button3" type="submit">Cadastrar Veículo</button>
+        </form>
+    </div>
+
+    <script src="CadastroVeiculo.js"></script>
+</body>
+</html>

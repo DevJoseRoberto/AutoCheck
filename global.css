@@ -1,0 +1,655 @@
+/*cadastroadmin.html*//*--------------------------------------------------------------------------------------------------------------*/
+
+/* Reset básico para consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+.body2 {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container principal */
+.container2 {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Título principal */
+.container2 h1 {
+  text-align: center;
+  color: #005566;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Estilo dos cards */
+.card2 {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card2 h2 {
+  color: #005566;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #005566;
+  box-shadow: 0 0 5px rgba(0, 85, 102, 0.3);
+}
+
+/* Checkbox */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #005566;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #003d4d;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Estilo da tabela */
+.admin-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-list th,
+.admin-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.admin-list th {
+  background-color: #005566;
+  color: #fff;
+  font-weight: 700;
+}
+
+.admin-list tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.admin-list tr:hover {
+  background-color: #e6f0f5;
+}
+
+/* Estilo do status */
+.status.active {
+  color: #28a745;
+  font-weight: 700;
+}
+
+.status.inactive {
+  color: #d9534f;
+  font-weight: 700;
+}
+
+/* Ações na tabela */
+.admin-list td button {
+  margin-right: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container2 {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+
+  .container2 h1 {
+    font-size: 2rem;
+  }
+
+  .card2 {
+    padding: 15px;
+  }
+
+  .card2 h2 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  /* Tabela responsiva */
+  .admin-list table,
+  .admin-list thead,
+  .admin-list tbody,
+  .admin-list th,
+  .admin-list td,
+  .admin-list tr {
+    display: block;
+  }
+
+  .admin-list thead {
+    display: none;
+  }
+
+  .admin-list tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+
+  .admin-list td {
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .admin-list td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    font-weight: 700;
+    color: #005566;
+  }
+
+  .admin-list td:last-child {
+    border-bottom: none;
+  }
+
+  .admin-list td button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+
+/*cadastroveiculo.html*//*-------------------------------------------------------------------------------------*/
+
+/* Reset básico para consistência */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+.body3 {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container do formulário */
+.container3 {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Título do formulário */
+.container3 h2 {
+  color: #005566;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+#formCadastroVeiculo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Campos do formulário */
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #005566;
+  box-shadow: 0 0 5px rgba(0, 85, 102, 0.3);
+}
+
+.campo input::placeholder {
+  color: #999;
+}
+
+/* Mensagem de erro */
+.campo .error-message {
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none;
+}
+
+/* Botão de submissão */
+.button3[type="submit"] {
+  background-color: #005566;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.button3[type="submit"]:hover {
+  background-color: #003d4d;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container3 {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .container3 h2 {
+    font-size: 1.5rem;
+  }
+
+  .campo input,
+  .campo select {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .button3[type="submit"] {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container3 h2 {
+    font-size: 1.3rem;
+  }
+
+  .campo label {
+    font-size: 0.9rem;
+  }
+
+  .campo input,
+  .campo select {
+    font-size: 0.9rem;
+  }
+
+  .campo .error-message {
+    font-size: 0.8rem;
+  }
+
+  .button3[type="submit"] {
+    font-size: 0.9rem;
+  }
+}
+
+
+/*admin.html*//*-------------------------------------------------------------------------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body1 {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo do cabeçalho */
+header {
+  background-color: #005566;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#nome-admin {
+  font-size: 1rem;
+}
+
+#logout {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#logout:hover {
+  background-color: #c9302c;
+}
+
+/* Container principal */
+.container1 {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+/* Sidebar */
+.sidebar1 {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar1 ul {
+  list-style: none;
+}
+
+.sidebar1 li {
+  margin: 10px 0;
+}
+
+.sidebar1 a {
+  text-decoration: none;
+  color: #005566;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.sidebar1 a:hover {
+  color: #003d4d;
+}
+
+#toggle-sidebar1 {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  background-color: #005566;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#toggle-sidebar1:hover {
+  background-color: #003d4d;
+}
+
+/* Main content */
+.main1 {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main1 h2 {
+  color: #005566;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Estatísticas */
+.estatisticas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cartao1 {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cartao1 h3 {
+  color: #005566;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.cartao1 p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container1 {
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .sidebar1 {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .sidebar1 ul {
+    display: none;
+  }
+
+  .sidebar1.ativo ul {
+    display: block;
+  }
+
+  #toggle-sidebar1 {
+    display: block;
+  }
+
+  .main1 {
+    padding: 15px;
+  }
+
+  .estatisticas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartao1 {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header1 {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header1 h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .header1 div {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main1 h2 {
+    font-size: 1.5rem;
+  }
+
+  .cartao1 h3 {
+    font-size: 1rem;
+  }
+
+  .cartao1 p {
+    font-size: 1.2rem;
+  }
+}

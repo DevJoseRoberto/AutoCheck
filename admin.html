@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCheck - Painel Administrativo</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+<body class="body1">
+  <header>
+    <h1>AutoCheck - Painel Administrativo</h1>
+    <div>
+      <span id="nome-admin">Bem-vindo, <span id="nome-usuario"></span></span>
+      <button id="logout">Sair</button>
+    </div>
+  </header>
+  <div class="container1">
+    <nav class="sidebar1"> 
+      <button id="toggle-sidebar1">☰ Menu</button><!--botao de menu-->
+      <ul>
+        <li><a href="AdmCadastro.html">Cadastro de Administrador</a></li>
+        <li><a href="UserCadastro.html">Cadastro de Usuários</a></li>
+        <li><a href="VeiculoCadastro.html">Cadastro de Veículos</a></li>
+        <li><a href="usuarios.html">Gerenciar Usuários</a></li>
+        <li><a href="veiculos.html">Gerenciar Veículos</a></li>
+        <li><a href="status.html">Gerenciar Status</a></li>
+        <li><a href="logs.html">Logs de Consultas</a></li>
+        
+
+
+
+      </ul>
+    </nav>
+    <main class="main1">
+      <h2>Visão Geral</h2>
+      <div class="estatisticas"> <!--serve pra dividir os quadrados-->
+        <div class="cartao1">
+          <h3>Usuários</h3>
+          <p id="total-usuarios">Carregando...</p>
+        </div>
+        <div class="cartao1">
+          <h3>Veículos</h3>
+          <p id="total-veiculos">Carregando...</p>
+        </div>
+        <div class="cartao1">
+          <h3>Consultas Recentes</h3>
+          <p id="total-consultas">Carregando...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
