@@ -10,10 +10,79 @@
 /* Estilo geral do body */
 .body2 {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
+  background: white;
   color: #333;
   line-height: 1.6;
 }
+
+.status.active{
+
+background-color: #4CAF50;
+border-radius: 12px;
+ padding: 6px 10px;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 0 0 0 0;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Poppins', sans-serif
+
+}
+
+.status.inactive{
+
+ background-color: #F44336;
+border-radius: 12px;
+ padding: 6px 10px;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 0 0 0 0;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Poppins', sans-serif
+
+
+}
+
+
+
+.logo1{
+
+background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);;
+padding-bottom: 50px;
+position: static;
+
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+    position: fixed; /* Fixa no topo ao rolar */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-height: 60px;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+
+
+
+
+}
+
+
+
+.logo1 img {
+  width: 170px; /* Tamanho reduzido do logo */
+  height: auto; /* Mantém a proporção */
+  display: block;
+  padding-left: 30px;
+  padding-top: 40px;
+ 
+}
+
 
 /* Container principal */
 .container2 {
@@ -21,7 +90,7 @@
   margin: 40px auto;
   padding: 30px 20px;
   background-color: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
-  border-radius: 8px;
+  border-radius: 12px;
 
 }
 
@@ -37,8 +106,8 @@
 /* Estilo dos cards */
 .card2 {
   background-color:  linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
-  border: 1px solid  rgba(255, 184, 84, 1);
-  border-radius: 8px;
+  border: 1px solid rgb(116, 113, 113);
+  border-radius: 12px;
   padding: 20px;
   margin-bottom: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -59,7 +128,7 @@ form {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .form-group label {
@@ -74,8 +143,8 @@ form {
 .form-group input[type="password"] {
   width: 100%;
   padding: 10px;
-  border: 3px solid #ffae62;
-  border-radius: 20px;
+  border: 1px solid rgb(116, 113, 113);
+  border-radius: 12px;
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
 }
@@ -109,7 +178,7 @@ form {
   display: inline-block;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
@@ -120,7 +189,7 @@ form {
 .btn-primary {
   background-color: #000000;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 
 .btn-primary:hover {
@@ -130,7 +199,7 @@ form {
 .btn-secondary {
   background-color: #000000;
   color: #ffffff;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 
 .btn-secondary:hover {
@@ -140,7 +209,7 @@ form {
 .btn-danger {
   background-color: #000000;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 
 .btn-danger:hover {
@@ -150,7 +219,7 @@ form {
 .btn-success {
   background-color: #000000;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 12px;
  
 }
 
@@ -162,7 +231,7 @@ form {
 .admin-list table {
   width: 100%;
   border-collapse: collapse;
- border-radius: 20px;
+ border-radius: 12px;
 }
 
 .admin-list th,
@@ -188,12 +257,12 @@ form {
 
 /* Estilo do status */
 .status.active {
-  color: #28a745;
+  color: #f1f1f1;
   font-weight: 700;
 }
 
 .status.inactive {
-  color: #d9534f;
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -242,7 +311,7 @@ form {
   .admin-list tr {
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 12px;
     background-color: #fff;
   }
 
@@ -299,23 +368,54 @@ form {
   box-sizing: border-box;
 }
 
+.logo2{
+
+background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);;
+padding-bottom: 50px;
+position: static;
+
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+    position: fixed; /* Fixa no topo ao rolar */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-height: 60px;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+
+}
+
+.logo2 img {
+  width: 170px; /* Tamanho reduzido do logo */
+  height: auto; /* Mantém a proporção */
+  display: block;
+  padding-left: 30px;
+  padding-top: 40px;
+ 
+}
+
 /* Estilo geral do body */
 .body3 {
   font-family: Arial, sans-serif;
-  background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
+  background: white;
   color: #333;
   line-height: 1.6;
+  padding-top: 50;
+
 }
 
 /* Container do formulário */
 .container3 {
   max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1);
-  border: 1px solid rgba(255, 184, 84, 1);
-  border-radius: 8px;
+  margin: 150px auto;
+  padding: 50px;
+  background-color: white;
+  border: 1px solid rgb(116, 113, 113);
+  border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
 }
 
 /* Título do formulário */
@@ -351,7 +451,7 @@ form {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 1rem;
   font-family: Arial, sans-serif;
 }
@@ -381,7 +481,7 @@ form {
   color: #fff;
   border: none;
   padding: 12px 20px;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -440,225 +540,3 @@ form {
 }
 
 
-/*admin.html*//*-------------------------------------------------------------------------------------*/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.body1 {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Estilo do cabeçalho */
-header {
-  background-color: #2c3e50;;
-  color: #ffffff;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-header div {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-#nome-admin {
-  font-size: 1rem;
-}
-
-#logout {
-  background-color: #d9534f;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-#logout:hover {
-  background-color: #c9302c;
-}
-
-/* Container principal */
-.container1 {
-  display: flex;
-  max-width: 1200px;
-  margin: 20px auto;
-  gap: 20px;
-}
-
-/* Sidebar */
-.sidebar1 {
-  width: 250px;
-  background-color: #fff;
-  border-right: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar1 ul {
-  list-style: none;
-}
-
-.sidebar1 li {
-  margin: 10px 0;
-}
-
-.sidebar1 a {
-  text-decoration: none;
-  color: #005566;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.sidebar1 a:hover {
-  color: #003d4d;
-}
-
-#toggle-sidebar1 {
-  display: none;
-  width: 100%;
-  padding: 10px;
-  background-color: #005566;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-#toggle-sidebar1:hover {
-  background-color: #003d4d;
-}
-
-/* Main content */
-.main1 {
-  flex: 1;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.main1 h2 {
-  color: #005566;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-/* Estatísticas */
-.estatisticas {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.cartao1 {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.cartao1 h3 {
-  color: #005566;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.cartao1 p {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #333;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .container1 {
-    flex-direction: column;
-    margin: 10px;
-  }
-
-  .sidebar1 {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-    padding: 10px;
-  }
-
-  .sidebar1 ul {
-    display: none;
-  }
-
-  .sidebar1.ativo ul {
-    display: block;
-  }
-
-  #toggle-sidebar1 {
-    display: block;
-  }
-
-  .main1 {
-    padding: 15px;
-  }
-
-  .estatisticas {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cartao1 {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header1 {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  .header1 h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .header1 div {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .main1 h2 {
-    font-size: 1.5rem;
-  }
-
-  .cartao1 h3 {
-    font-size: 1rem;
-  }
-
-  .cartao1 p {
-    font-size: 1.2rem;
-  }
-}

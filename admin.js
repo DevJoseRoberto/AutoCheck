@@ -1,100 +1,65 @@
-// Função para exibir notificações (consistente com script.js)
+// Função para exibir notificações (opcional, para feedback visual)
 function showNotification(message, type) {
-    const notification = document.getElementById('notification');
-    if (!notification) {
-        // Cria dinamicamente o elemento de notificação se não existir
-        const notificationDiv = document.createElement('div');
-        notificationDiv.id = 'notification';
-        notificationDiv.className = `notification ${type}`;
-        notificationDiv.style.display = 'none';
-        notificationDiv.setAttribute('aria-live', 'polite');
-        document.querySelector('.container1').prepend(notificationDiv);
-    }
-    notification.textContent = message;
+    const notification = document.createElement('div');
     notification.className = `notification ${type}`;
-    notification.style.display = 'block';
+    notification.textContent = message;
+    notification.style.position = 'fixed';
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.padding = '15px';
+    notification.style.borderRadius = '5px';
+    notification.style.color = 'white';
+    notification.style.zIndex = '1300';
+    notification.style.backgroundColor = type === 'success' ? '#28a745' : '#dc3545';
+    document.body.appendChild(notification);
     setTimeout(() => {
-        notification.style.display = 'none';
-    }, 3000); // Desaparece após 3 segundos
+        notification.remove();
+    }, 3000);
 }
 
-// Exibir nome do administrador
-document.addEventListener('DOMContentLoaded', () => {
-    const nomeUsuario = document.getElementById('nome-usuario');
-    // Simula obtenção do nome (substitua por chamada à API ou localStorage real)
-    const adminName = localStorage.getItem('adminName') || 'Administrador';
-    nomeUsuario.textContent = adminName;
+// Toggle da sidebar em telas menores
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    sidebar.classList.toggle('visible');
+    mainContent.classList.toggle('expanded');
 });
 
-// Funcionalidade do botão de logout
-document.getElementById('logout').addEventListener('click', () => {
+// Gerenciar a navegação entre seções
+document.querySelectorAll('.sidebar-menu a[data-section]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Impede o comportamento padrão do link
+
+        // Remove a classe 'active' de todos os links e seções
+        document.querySelectorAll('.sidebar-menu a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+
+        // Adiciona a classe 'active' ao link clicado e à seção correspondente
+        link.classList.add('active');
+        const sectionId = link.getAttribute('data-section');
+        document.getElementById(sectionId).classList.add('active');
+
+        // Esconde a sidebar em telas menores após selecionar uma seção
+        if (window.innerWidth <= 768) {
+            document.querySelector('.sidebar').classList.remove('visible');
+            document.querySelector('.main-content').classList.add('expanded');
+        }
+    });
+});
+
+// Funcionalidade de logout
+document.getElementById('logout-btn').addEventListener('click', () => {
     if (confirm('Deseja realmente sair?')) {
-        // Simula logout (limpa localStorage e redireciona)
-        localStorage.removeItem('adminName');
         showNotification('Logout realizado com sucesso!', 'success');
         setTimeout(() => {
-            window.location.href = 'login.html'; // Ajuste para a página de login real
+            window.location.href = 'login.html'; // Redireciona para a página de login
         }, 1000);
-        
-        // Exemplo de chamada AJAX para logout (descomente quando o backend estiver pronto)
-        /*
-        fetch('/api/logout', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                showNotification('Logout realizado com sucesso!', 'success');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 1000);
-            } else {
-                showNotification('Erro ao realizar logout.', 'error');
-            }
-        })
-        .catch(error => {
-            showNotification('Erro ao conectar com o servidor.', 'error');
-        });
-        */
     }
 });
 
-// Toggle da barra lateral em dispositivos móveis
-document.getElementById('toggle-sidebar1').addEventListener('click', () => {
-    const sidebar = document.querySelector('.sidebar1');
-    sidebar.classList.toggle('ativo');
-});
-
-// Atualizar estatísticas (simulação)
+// Marcar a seção inicial como ativa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    // Valores fictícios para estatísticas (substitua por chamada à API)
-    const estatisticas = {
-        totalUsuarios: 0,
-        totalVeiculos: 0,
-        totalConsultas: 0
-    };
-
-    document.getElementById('total-usuarios').textContent = estatisticas.totalUsuarios;
-    document.getElementById('total-veiculos').textContent = estatisticas.totalVeiculos;
-    document.getElementById('total-consultas').textContent = estatisticas.totalConsultas;
-
-    // Exemplo de chamada AJAX para estatísticas (descomente quando o backend estiver pronto)
-    /*
-    fetch('/api/estatisticas', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('total-usuarios').textContent = data.totalUsuarios || 0;
-        document.getElementById('total-veiculos').textContent = data.totalVeiculos || 0;
-        document.getElementById('total-consultas').textContent = data.totalConsultas || 0;
-    })
-    .catch(error => {
-        showNotification('Erro ao carregar estatísticas.', 'error');
-        document.getElementById('total-usuarios').textContent = 'Erro';
-        document.getElementById('total-veiculos').textContent = 'Erro';
-        document.getElementById('total-consultas').textContent = 'Erro';
-    });
-    */
+    const defaultLink = document.querySelector('.sidebar-menu a[data-section="veiculos"]');
+    defaultLink.classList.add('active');
 });

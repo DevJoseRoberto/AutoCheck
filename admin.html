@@ -1,54 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoCheck - Painel Administrativo</title>
-  <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="admin.css">
 </head>
-<body class="body1">
-  <header>
-    <h1>AutoCheck - Painel Administrativo</h1>
-    <div>
-      <span id="nome-admin">Bem-vindo, <span id="nome-usuario"></span></span>
-      <button id="logout">Sair</button>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo5">
+    <img src="imagens/logo.png" alt="Logo">
+   </div>
+  
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" data-section="veiculos">Veículos</a></li>
+                <li><a href="#" data-section="multas">Multas</a></li>
+                <li><a href="#" data-section="usuarios">Usuários</a></li>
+                <li><a href="CadastroUsuario.html">Cadastro de Usuários</a></li>
+                <li><a href="CadastroVeiculo.html">Cadastro de Veículos</a></li>
+                <li><a href="paineluser.html">Gerenciar Usuários</a></li>
+                <li><a href="GerenciarVeiculo.html">Gerenciar Veículos</a></li>
+                <li><a href="logs.html">Logs de Consultas</a></li>
+                
+
+            </ul>
+
+
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <button class="menu-toggle" aria-label="Abrir Menu">☰</button>
+                <p class="canto">Bem vindo, Administrador</p>
+                <button id="logout-btn">Sair</button>
+            </header>
+
+            <section id="veiculos" class="content-section active">
+                <h2>Gerenciamento de Veículos</h2>
+                <p>Conteúdo para veículos...</p>
+                </section>
+
+            <section id="multas" class="content-section">
+                <h2>Gerenciamento de Multas</h2>
+                <p>Conteúdo para multas...</p>
+                </section>
+
+            <section id="usuarios" class="content-section">
+                <h2>Gerenciamento de Usuários</h2>
+                <p>Conteúdo para usuários...</p>
+                </section>
+        </main>
     </div>
-  </header>
-  <div class="container1">
-    <nav class="sidebar1"> 
-      <button id="toggle-sidebar1">☰ Menu</button><!--botao de menu-->
-      <ul>
-        <li><a href="CadastroAdmin.html">Cadastro de Administrador</a></li>
-        <li><a href="UserCadastro.html">Cadastro de Usuários</a></li>
-        <li><a href="CadastroVeiculo.html">Cadastro de Veículos</a></li>
-        <li><a href="paineluser.html">Gerenciar Usuários</a></li>
-        <li><a href="veiculos.html">Gerenciar Veículos</a></li>
-        <li><a href="paineluser.html">Gerenciar Status</a></li>
-        <li><a href="logs.html">Logs de Consultas</a></li>
-        
 
-
-
-      </ul>
-    </nav>
-    <main class="main1">
-      <h2>Visão Geral</h2>
-      <div class="estatisticas"> <!--serve pra dividir os quadrados-->
-        <div class="cartao1">
-          <h3>Usuários</h3>
-          <p id="total-usuarios">Carregando...</p>
-        </div>
-        <div class="cartao1">
-          <h3>Veículos</h3>
-          <p id="total-veiculos">Carregando...</p>
-        </div>
-        <div class="cartao1">
-          <h3>Consultas Recentes</h3>
-          <p id="total-consultas">Carregando...</p>
-        </div>
-      </div>
-    </main>
-  </div>
-  <script src="admin.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
