@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Usuário</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/paineluser.css">
+</head>
+
+<body>
+  <div class="toper">
+  <div class="logo">
+    <img src="../img/logo.png" alt="Logo">
+  </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <header>
+        <h1>Painel do Usuário</h1>
+        <span><img src="admin-logo.png" alt="Ícone Admin" style="width: 20px; height: 20px; vertical-align: middle; margin-left: 8px;"> Administrador</span>
+      </header>
+
+      <section class="perfil">
+        <img src="usuario.png" alt="Foto do usuário">
+        <div class="perfil-info">
+          <h2>Ana Eloisa</h2>
+          <p>Email: ana@email.com</p>
+          <p>CPF: 000.000.000-00</p>
+          <p>Status: <span class="badge ativo">Ativo</span></p>
+          <p>Multas: 2</p>
+          <button class="acao">Ver Multas</button>
+          <button class="acao" onclick="mudarStatus(this)">Mudar Status</button>
+        </div>
+      </section>
+
+            <section class="veiculo">
+        <h2><img src="car-icon.png" alt="Carro" style="width: 35px; vertical-align: middle; margin-right: 8px;">Informações do Veículo</h2>
+        <div class="car-info">
+          <p>Placa: ABC-1234</p>
+          <p>Cor: Preto</p>
+          <p>Modelo: Fiat Argo</p>
+          <p>Ano: 2022</p>
+          </div>
+      </section>
+
+      <section class="painel-status">
+        <h2>Gerenciamento de Usuários</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="usuario.png" alt="Usuário"></td>
+              <td>Ana Eloisa</td>
+              <td>000.000.000-00</td>
+              <td><span class="badge ativo">Ativo</span></td>
+              <td style="vertical-align: middle;"><button class="acao">Editar</button> <button class="acao" onclick="mudarStatus(this)">Mudar Status</button></td>
+            </tr>
+            <tr>
+              <td><img src="https://via.placeholder.com/40" alt="Usuário"></td>
+              <td>João Silva</td>
+              <td>111.111.111-11</td>
+              <td><span class="badge inativo">Inativo</span></td>
+              <td style="vertical-align: middle;"><button class="acao">Editar</button> <button class="acao" onclick="mudarStatus(this)">Mudar Status</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <script src="../js/paineluser.js"></script>
+</body>
+</html>
