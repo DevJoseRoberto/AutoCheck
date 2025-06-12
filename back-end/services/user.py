@@ -1,12 +1,12 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from models.user import User
+from models.user import Users
 from schemas.user import UserCreate
 from utils import hash_password
 from fastapi import HTTPException, status
 3
 def get_user_by_email(db: Session, email: str):
-    user = db.query(User).filter(User.email == email).first()
+    user = db.query(Users).filter(Users.email == email).first()
 
     if not user:
         raise HTTPException(
@@ -17,7 +17,7 @@ def get_user_by_email(db: Session, email: str):
 
 def create_user(user: UserCreate, db: Session):
         hashed_password = hash_password(user.password)
-        db_user = User(
+        db_user = Users(
             name=user.name, 
             hashed_password=hashed_password,
             email=user.email,
@@ -32,14 +32,14 @@ def create_user(user: UserCreate, db: Session):
         return db_user
 
 def get_all_users(db: Session):
-    query = select(User)
+    query = select(Users)
     result = db.execute(query)
     users = result.scalars().all()
 
     return users
 
 def update_user(db: Session, user_id: int, user_data: UserCreate):
-    user_to_update = db.query(User).filter(User.id == user_id).first()
+    user_to_update = db.query(Users).filter(Users.id == user_id).first()
 
     if user_to_update:
         if user_data.name is not None:
@@ -63,7 +63,7 @@ def update_user(db: Session, user_id: int, user_data: UserCreate):
     return user_to_update
 
 def delete_user(db: Session, user_id: int):
-    deleted_user = db.query(User).filter(User.id == user_id).first()
+    deleted_user = db.query(Users).filter(Users.id == user_id).first()
 
     if deleted_user:
         db.delete(deleted_user)

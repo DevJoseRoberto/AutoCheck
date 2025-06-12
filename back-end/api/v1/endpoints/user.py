@@ -4,7 +4,7 @@ from schemas.user import UserOut
 from core.security import create_acess_token, decode_access_token
 from sqlalchemy.orm import Session
 from db.session import SessionLocal
-from models.user import User
+from models.user import Users
 from schemas.user import UserCreate, UserOut, UserLogin
 from utils import hash_password
 from typing import List
@@ -23,7 +23,7 @@ def get_db():
 async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     print(user)
     if user.confirm_password != user.password:
-        raise HTTPException(status_code=stauts.HTTP_400_BAD_REQUEST,
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
         detail="As senhas diferem"
         )
     if user.password:
@@ -31,12 +31,12 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, 
             detail="A sua senha deve ter mais de 6 caracteres"
             )
-    db_name = db.query(User).filter(User.email == user.email).first()
+    db_name = db.query(Users).filter(Users.email == user.email).first()
     if db_name:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, 
             detail="Nome já cadastrado, deseja fazer o login?"
         )
-    db_cpf = db.query(User).filter(User.cpf == user.cpf).first()
+    db_cpf = db.query(Users).filter(Users.cpf == user.cpf).first()
     if db_cpf:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, 
             detail="CPF já cadastrado, deseja fazer o login?"
@@ -47,7 +47,6 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
 @user_router.get("/get_users")
 async def read_users(db: Session = Depends(get_db)):
     return get_all_users(db)
-
 
 
 @user_router.put("/updateuser/{user_id}", response_model=UserOut)

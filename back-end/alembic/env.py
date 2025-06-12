@@ -2,7 +2,7 @@ from logging.config import fileConfig
 from db.session import Base
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from models.user import User
+from models.user import Users
 from models.vehicle import Vehicle
 from alembic import context
 

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from schemas.user import UserLogin
-from models.user import User
+from models.user import Users
 from sqlalchemy import select
 from core.security import SECRET_KEY, ALGORITHM
 from jose import JWTError, jwt
@@ -13,7 +13,7 @@ oauth_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 async def get_user(db: Session, username:str):
-    user = await db.query(User).filter(User.name == username).first()
+    user = await db.query(Users).filter(Users.name == username).first()
 
     if not user:
         raise HTTPException(

@@ -1,4 +1,5 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, validator
+from datetime import datetime,date
 
 class UserCreate(BaseModel):
     name: str
@@ -6,7 +7,17 @@ class UserCreate(BaseModel):
     confirm_password: str
     cpf: str
     phone: str
-    birthdate: str
+    birthdate: date
+
+    @validator('birthdate', pre=True)
+    def validate_date(cls, value):
+        if isinstance(value, date):
+            return value
+        try:
+            return datetime.strptime(value, "%d/%m/%Y").date()
+        except ValueError:
+            raise ValueError('Data inválida')
+    
     email: EmailStr
     is_admin: bool
 

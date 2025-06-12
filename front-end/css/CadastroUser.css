@@ -95,3 +95,17 @@ body {
     color: red;
     font-weight: 500;
 }
+
+.radioButton{
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.radioButton input{
+    margin-left: 10px;
+    border-radius: 0;
+}
+
+.error{
+    color: red;
+}

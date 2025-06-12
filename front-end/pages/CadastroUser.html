@@ -13,6 +13,10 @@
         <form id="login-form">
             <h1>Cadastro</h1>
             <div class="input-box">
+                <input type="text" id="name" placeholder="Nome Completo">
+                <i class="bx bxs-user-circle"></i>
+            </div>
+            <div class="input-box">
                 <input id="cpf" placeholder="CPF">
                 <i class="bx bxs-user-circle"></i>
             </div>
@@ -25,8 +29,20 @@
                 <i class="bx bxs-user"></i>
             </div>
             <div class="input-box">
+                <input type="text" id="birthdate" placeholder="Data de nascimento">
+            </div>
+            <div class="input-box">
                 <input id="password" placeholder="Senha" type="password">
                 <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input id="confirm_password" placeholder="Confirme sua senha" type="password">
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="radioButton">
+                <label> 
+                    <input type="checkbox" id="is_admin"> Sou usuário administrador
+                </label>
             </div>
             <button type="submit" class="login">Criar Conta</button>
         </form>

@@ -3,8 +3,8 @@ from datetime import datetime
 from db.session import Base
 
 
-class User(Base):
-    __tablename__ = 'User'
+class Users(Base):
+    __tablename__ = 'Users'
 
     id = Column(Integer, primary_key=True, index=True)
     created_at = Column(Date, default=datetime.utcnow)
