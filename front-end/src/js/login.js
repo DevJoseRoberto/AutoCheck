@@ -28,7 +28,27 @@ loginForm.addEventListener('submit', async (e) => {
         if (response.ok) {
             const result = await response.json();
             localStorage.setItem('token', result.access_token);
-            window.location.href = '/src/pages/loggedhome.html';
+            // Verificar se o usuário é administrador
+            try {
+                const userResponse = await fetch('http://127.0.0.1:8000/auth/data', {
+                    headers: {
+                        'Authorization': `${result.access_token}`
+                    }
+                });
+                if (userResponse.ok) {
+                    const [userData, isAdmin] = await userResponse.json();
+                    console.log('Dados do usuário:', userData);
+                    console.log('É admin:', isAdmin);
+                    if (isAdmin) {
+                        window.location.href = '/src/pages/admin.html';
+                    } else {
+                        window.location.href = '/src/pages/loggedhome.html';
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao verificar permissões:', error);
+                window.location.href = '/src/pages/loggedhome.html';
+            }
             return;
         } else {
             const error = await response.json()

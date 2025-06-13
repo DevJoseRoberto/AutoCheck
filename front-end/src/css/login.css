@@ -11,24 +11,40 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #ff5252;
-    background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
-    background-size: cover;
-    background-position: center;
+    background: white;
+    padding: 20px 0;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.logo-container img {
+    width: 200px;
+    height: 40px;
 }
 
 .container {
     width: 420px;
-    background-color: transparent;
-    border: 2px solid black;
+    background-color: white;
+    border: 2px solid #ddd;
     border-radius: 10px;
     color: black;
-    padding: 30px 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    backdrop-filter: blur(50px);
+    padding: 20px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto 30px;
+    display: block;
 }
 
 .container h1 {
@@ -71,18 +87,19 @@ body {
 .login{
     width: 100%;
     height: 50px;
-    background-color: black;
+    background-color: #ff5252;
+    background-color: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
     border: none;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
     color: white;
+    transition: 0.35s;
 }
 .login:hover{
-    background-color: rgba(255, 184, 84, 1);
+    background-color: #FF7F00;
     border: 2px solid;
-    transition: 0.35s;
-    color:black
+    color: white;
 }
 
 .registro{
@@ -94,17 +111,4 @@ body {
     text-decoration: none;
     color: red;
     font-weight: 500;
-}
-
-.response{
-    margin-bottom: 10px;
-}
-
-.success{
-    margin-top: 10px;
-}
-
-.error{
-    color: red;
-    margin-top: 10px;
 }

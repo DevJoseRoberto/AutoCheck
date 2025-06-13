@@ -1,15 +1,23 @@
 // Adicione em uma tag <script> no final do HTML ou em um arquivo .js separado
-document.querySelector('form').addEventListener('submit', function (e) {
+document.getElementById('adminForm').addEventListener('submit', async function (e) {
   e.preventDefault(); // Impede o envio do formulário para validação
 
-  const nome = document.getElementById('nome').value.trim();
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const birthdate = document.getElementById('birthdate').value.trim();
+  const cpf = document.getElementById('cpf').value.trim().replace(/\D/g, '');
   const email = document.getElementById('email').value.trim();
   const senha = document.getElementById('senha').value;
-  const confirmarSenha = document.getElementById('confirmar-senha').value;
+  const confirmarSenha = document.getElementById('confirm_password').value;
+  const ativo = document.getElementById('ativo').checked;
 
   // Validação básica
-  if (nome === '') {
+  if (name === '') {
     alert('Por favor, preencha o nome completo.');
+    return;
+  }
+  if (cpf.length !== 11) {
+    alert('Por favor, insira um CPF válido (11 dígitos).');
     return;
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -25,9 +33,39 @@ document.querySelector('form').addEventListener('submit', function (e) {
     return;
   }
 
-  // Se a validação passar, você pode enviar o formulário (ex.: via AJAX ou descomente a linha abaixo)
-  // this.submit();
-  alert('Administrador cadastrado com sucesso!'); // Placeholder para sucesso
+  try {
+    const response = await fetch('http://127.0.0.1:8000/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        birthdate: birthdate,
+        email: email,
+        password: senha,
+        confirm_password: senha,
+        cpf: cpf,
+        is_admin: true,
+        ativo: ativo
+      })
+    });
+
+    if (response.ok) {
+      alert('Administrador cadastrado com sucesso!');
+      // Limpa o formulário
+      this.reset();
+      // Redireciona para a página de login ou admin
+      window.location.href = '/src/pages/login.html';
+    } else {
+      const error = await response.json();
+      alert(error.detail || 'Erro ao cadastrar administrador.');
+    }
+  } catch (error) {
+    alert('Erro ao se comunicar com o servidor.');
+    console.error('Erro:', error);
+  }
 });
 
 //barra de pesquisa

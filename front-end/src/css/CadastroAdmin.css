@@ -127,32 +127,55 @@
     margin: 0 auto;
   }
   
+  /* Estilos específicos para o formulário */
   .form-group {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    width: 100%;
   }
-  
+
   .form-group label {
     display: block;
-    font-weight: 400;
-    color: #333;
     margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
   }
-  
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
+
+  .form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid rgb(116, 113, 113);
-    border-radius: 12px;
-    font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
   }
-  
+
   .form-group input:focus {
     outline: none;
-    border-color: #005566;
-    box-shadow: 0 0 5px rgba(0, 85, 102, 0.3);
+    border-color: #FF5252;
+    box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.2);
+  }
+
+  /* Estilos específicos para campos de telefone e data */
+  .form-group input[type="tel"] {
+    padding-right: 40px;
+  }
+
+  .form-group input[type="date"] {
+    padding-right: 40px;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #FF5252;
+    opacity: 1;
+    margin: 0 10px;
+  }
+
+  .form-group input[type="date"]::-webkit-inner-spin-button,
+  .form-group input[type="date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   
   /* Checkbox */

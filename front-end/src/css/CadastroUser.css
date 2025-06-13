@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -11,24 +9,32 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #ff5252;
-    background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
-    background-size: cover;
-    background-position: center;
+    background: white;
+    padding: 20px 0;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.logo-container img {
+    width: 200px;
+    height: 40px;
 }
 
 .container {
     width: 420px;
-    background-color: transparent;
-    border: 2px solid black;
+    background-color: white;
+    border: 2px solid #ddd;
     border-radius: 10px;
     color: black;
-    padding: 30px 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    backdrop-filter: blur(50px);
+    padding: 20px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 
 .container h1 {
@@ -41,7 +47,6 @@ body {
     width: 100%;
     height: 50px;
     margin: 30px 0;
-
 }
 
 .input-box input {
@@ -68,21 +73,23 @@ body {
     font-size: 20px;
 }
 
-.login{
+.cadastro{
     width: 100%;
     height: 50px;
-    background-color: black;
+    background-color: #ff5252;
+    background: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
     border: none;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
     color: white;
-}
-.login:hover{
-    background-color: rgba(255, 184, 84, 1);
-    border: 2px solid;
     transition: 0.35s;
-    color:black
+}
+
+.cadastro:hover{
+    background: linear-gradient(90deg, rgba(255, 184, 84, 1) 0%, rgba(255, 82, 82, 1) 100%);
+    border: 2px solid;
+    color: white;
 }
 
 .registro{
@@ -90,22 +97,27 @@ body {
     text-align: center;
     margin: 20px 0 15px;
 }
+
 .registro a{
     text-decoration: none;
     color: red;
     font-weight: 500;
 }
 
-.radioButton{
-    margin-left: 5px;
-    margin-bottom: 20px;
+.login{
+    width: 100%;
+    height: 50px;
+    background-color: #ff5252;
+    background-color: linear-gradient(90deg, rgba(255, 82, 82, 1) 0%, rgba(255, 184, 84, 1) 100%);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    transition: 0.35s;
 }
-
-.radioButton input{
-    margin-left: 10px;
-    border-radius: 0;
-}
-
-.error{
-    color: red;
+.login:hover{
+    background-color: #FF7F00;
+    border: 2px solid;
+    color: white;
 }

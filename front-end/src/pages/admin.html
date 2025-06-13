@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
+
+    <div id="vehicleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cadastro de Veículo</h2>
+            <form id="vehicleForm">
+                <div class="form-group">
+                    <label for="plate">Placa</label>
+                    <input type="text" id="plate" name="plate" required pattern="[A-Z]{3}-[0-9]{4}" placeholder="Ex: ABC-1234">
+                </div>
+                <div class="form-group">
+                    <label for="model">Modelo</label>
+                    <input type="text" id="model" name="model" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Ano</label>
+                    <input type="number" id="year" name="year" required min="1900" max="2025">
+                </div>
+                <div class="form-group">
+                    <label for="color">Cor</label>
+                    <input type="text" id="color" name="color" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner">Proprietário</label>
+                    <input type="text" id="owner" name="owner" required>
+                </div>
+                <button type="submit" class="submit-btn">Salvar</button>
+                <button type="button" class="cancel-btn" onclick="closeModal()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -19,12 +51,7 @@
                 <li><a href="#" data-section="multas">Multas</a></li>
                 <li><a href="#" data-section="consultas">Consultas</a></li>
                 <li><a href="../pages/paineluser.html">Gerenciar Usuários</a></li>
-                <li><a href="../pages/CadastroUser.html">Cadastro de Usuários</a></li>
-                <li><a href="../pages/CadastroVeiculo.html">Cadastro de Veículos</a></li>
-                <li><a href="../pages/CadastroAdmin.html">Cadastro de  Administradores</a></li>
-                
-                
-                
+                <li><a href="../pages/CadastroAdmin.html">Cadastro de Administradores</a></li>
             </ul>
         </aside>
 
@@ -40,50 +67,32 @@
                 <p>Gerencie os veículos cadastrados, visualize os detalhes e mantenha os dados atualizados.</p>
                 <div class="vehicle-management-content">
                     <h3>Lista de Veículos</h3>
-                    <table border="1" width="100%">
+                    <table>
                         <thead>
                             <tr>
                                 <th>Placa</th>
                                 <th>Modelo</th>
                                 <th>Ano</th>
                                 <th>Cor</th>
+                                <th>Proprietário</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>ABC-1234</td>
-                                <td>Fiat Palio</td>
-                                <td>2015</td>
-                                <td>Prata</td>
-                                <td>
-                                    <button onclick="editVehicle('ABC-1234')">Editar</button>
-                                    <button onclick="deleteVehicle('ABC-1234')">Excluir</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>XYZ-5678</td>
-                                <td>Honda Civic</td>
-                                <td>2020</td>
-                                <td>Preto</td>
-                                <td>
-                                    <button onclick="editVehicle('XYZ-5678')">Editar</button>
-                                    <button onclick="deleteVehicle('XYZ-5678')">Excluir</button>
-                                </td>
-                            </tr>
-                            </tbody>
+                        <tbody id="vehicleTableBody">
+
+                        </tbody>
                     </table>
                     <br>
-                    <button onclick="addNewVehicle()">Adicionar Novo Veículo</button>
+                    <button onclick="openVehicleModal()">Adicionar Novo Veículo</button>
                 </div>
-                </section>
+            </section>
 
             <section id="multas" class="content-section">
                 <h2>Gerenciamento de Multas</h2>
                 <p>Consulte e administre as multas registradas no sistema.</p>
                 <div class="fines-management-content">
                     <h3>Lista de Multas</h3>
-                    <table border="1" width="100%">
+                    <table>
                         <thead>
                             <tr>
                                 <th>ID Multa</th>
@@ -94,59 +103,40 @@
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>ABC-1234</td>
-                                <td>2024-05-10</td>
-                                <td>R$ 150,00</td>
-                                <td>Pendente</td>
-                                <td>
-                                    <button onclick="viewFine('001')">Ver Detalhes</button>
-                                    <button onclick="payFine('001')">Marcar como Pago</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>XYZ-5678</td>
-                                <td>2024-04-22</td>
-                                <td>R$ 200,00</td>
-                                <td>Pago</td>
-                                <td>
-                                    <button onclick="viewFine('002')">Ver Detalhes</button>
-                                </td>
-                            </tr>
-                            </tbody>
+                        <tbody id="finesTableBody">
+                            <!-- Os dados serão carregados dinamicamente via JavaScript -->
+                        </tbody>
                     </table>
                     <br>
                     <button onclick="reportNewFine()">Registrar Nova Multa</button>
                 </div>
-                </section>
+            </section>
 
             <section id="consultas" class="content-section">
                 <h2>Logs de Consultas</h2>
                 <p>Visualize o histórico de acessos e buscas feitas no sistema.</p>
                 <div class="query-logs-content">
                     <h3>Histórico de Consultas</h3>
-                    <table border="1" width="100%">
+                    <table>
                         <thead>
                             <tr>
-                                <th>ID Log</th>
+                                <th>ID</th>
                                 <th>Usuário</th>
                                 <th>Data/Hora</th>
-                                <th>Consulta Realizada</th>
+                                <th>Tipo</th>
+                                <th>Detalhes</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>LOG-001</td>
-                                <td>admin_user</td>
-                                <td>2025-06-07 10:30:00</td>
-                                <td>Consulta de veículos: ABC-1234</td>
+                        <tbody id="logsTableBody">
+                            <!-- Os dados serão carregados dinamicamente via JavaScript -->
+                        </tbody>
+                                <td>1</td>
+                                <td>Gabriel</td>
+                                <td>2025-06-07 11:15:20</td>
                             </tr>
                             <tr>
-                                <td>LOG-002</td>
-                                <td>another_user</td>
+                                <td>2</td>
+                                <td>Joao</td>
                                 <td>2025-06-07 11:15:20</td>
                                 <td>Consulta de multas por ID: 001</td>
                             </tr>

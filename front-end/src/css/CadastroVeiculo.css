@@ -1,7 +1,3 @@
-
-/*cadastroveiculo.html*//*-------------------------------------------------------------------------------------*/
-
-/* Reset básico para consistência */
 * {
   margin: 0;
   padding: 0;
@@ -177,9 +173,4 @@ position: static;
   .button3[type="submit"] {
     font-size: 0.9rem;
   }
-}
-
-.response{
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
