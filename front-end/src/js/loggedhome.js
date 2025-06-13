@@ -6,7 +6,13 @@ carro.addEventListener('mouseleave', () => {
     carro.style.transform = 'translateY(0)';
 });
 
-
+const logoutButton = document.getElementById('logout-button');
+if (logoutButton) {
+    logoutButton.addEventListener('click', () => {
+        localStorage.removeItem('token');
+        window.location.href = '/src/pages/home.html';
+    });
+}
 
 window.addEventListener('load', async function getUserData() {
     if (!localStorage.getItem('token')) {
@@ -18,7 +24,7 @@ window.addEventListener('load', async function getUserData() {
         const response = await fetch('/auth/data', {
             method: 'GET',
             headers: {
-                'Authorization': ` ${localStorage.getItem('token')}`,
+                'Authorization': `${localStorage.getItem('token')}`,
             },
         });
         if (response.ok) {

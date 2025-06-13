@@ -27,8 +27,7 @@ loginForm.addEventListener('submit', async (e) => {
 
         if (response.ok) {
             const result = await response.json();
-            token = result.access_token.replace('Bearer ', '');
-            localStorage.setItem('token', token);
+            localStorage.setItem('token', result.access_token);
             window.location.href = '/src/pages/loggedhome.html';
             return;
         } else {

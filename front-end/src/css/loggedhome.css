@@ -83,6 +83,23 @@ body {
     margin-bottom: 40px;
 }
 
+#logout-button {
+    background-color: orange;
+    color: white1;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #a8a8a8;
+}
+
 @media(max-width: 600px) {
     .content h1 {
         font-size: 2.8rem;
