@@ -12,8 +12,8 @@ from fastapi.security import OAuth2PasswordBearer
 oauth_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
-async def get_user(db: Session, username:str):
-    user = await db.query(Users).filter(Users.name == username).first()
+def get_user(db: Session, username:str):
+    user = db.query(Users).filter(Users.email == username).first()
 
     if not user:
         raise HTTPException(

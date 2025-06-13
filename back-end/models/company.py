@@ -8,7 +8,7 @@ class Company(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     created_at = Column(Date, default=datetime.utcnow)
-    user_id = Column(Integer, ForeignKey('User.id'))
+    user_id = Column(Integer, ForeignKey('Users.id'))
     cnpj = Column(String, nullable=False)
     razao_social = Column(String, nullable=False)
     orgao = Column(String, default=None)

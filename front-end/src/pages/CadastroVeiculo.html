@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Veículo - AutoCheck</title>
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../../src/css/CadastroVeiculo.css">
 </head>
 
 <div class="logo2">
-    <img src="imagens/logo.png" alt="Logo">
+    <img src="../../public/img/logo.png" alt="Logo">
   </div>
   
 
@@ -17,8 +17,8 @@
         <h2>Cadastro de Veículo</h2>
         <form id="formCadastroVeiculo">
             <div class="campo">
-                <label for="placa">Placa do Veículo:</label>
-                <input type="text" id="placa" name="placa" placeholder="Ex: ABC1D23" required maxlength="7">
+                <label for="plate">Placa do Veículo:</label>
+                <input type="text" id="plate" name="plate" placeholder="Ex: ABC1D23" required maxlength="7">
                 <small class="error-message"></small>
             </div>
 
@@ -29,26 +29,26 @@
             </div>
 
             <div class="campo">
-                <label for="marca">Marca:</label>
-                <input type="text" id="marca" name="marca" placeholder="Ex: Fiat" required>
+                <label for="brand">Marca:</label>
+                <input type="text" id="brand" name="brand" placeholder="Ex: Fiat" required>
                 <small class="error-message"></small>
             </div>
 
             <div class="campo">
-                <label for="modelo">Modelo:</label>
-                <input type="text" id="modelo" name="modelo" placeholder="Ex: Mobi" required>
+                <label for="model">Modelo:</label>
+                <input type="text" id="model" name="model" placeholder="Ex: Mobi" required>
                 <small class="error-message"></small>
             </div>
 
             <div class="campo">
-                <label for="anoFabricacao">Ano de Fabricação:</label>
-                <input type="number" id="anoFabricacao" name="anoFabricacao" placeholder="Ex: 2023" required min="1900" max="2099">
+                <label for="vehicle_year">Ano de Fabricação:</label>
+                <input type="text" id="vehicle_year" name="vehicle_year" placeholder="Ex: 2023" required min="1980" max="2030">
                 <small class="error-message"></small>
             </div>
 
             <div class="campo">
-                <label for="cor">Cor:</label>
-                <input type="text" id="cor" name="cor" placeholder="Ex: Branco" required>
+                <label for="color">Cor:</label>
+                <input type="text" id="color" name="color" placeholder="Ex: Branco" required>
                 <small class="error-message"></small>
             </div>
 
@@ -66,15 +66,16 @@
             </div>
 
             <div class="campo">
-                <label for="numeroChassi">Número do Chassi:</label>
-                <input type="text" id="numeroChassi" name="numeroChassi" placeholder="Ex: 9BWxxxxxxxxxxxxxx" required maxlength="17">
+                <label for="chassi_number">Número do Chassi:</label>
+                <input type="text" id="chassi_number" name="chassi_number" placeholder="Ex: 9BWxxxxxxxxxxxxxx" required maxlength="17">
                 <small class="error-message"></small>
             </div>
             
+            <div id="response"></div>
             <button class="button3" type="submit">Cadastrar Veículo</button>
         </form>
     </div>
 
-    <script src="../js/CadastroVeiculo.js"></script>
+    <script src="../../src/js/CadastroVeiculo.js"></script>
 </body>
 </html>

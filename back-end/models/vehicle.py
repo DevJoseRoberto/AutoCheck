@@ -5,9 +5,11 @@ class Vehicle(Base):
     __tablename__ = 'Vehicle'
 
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey('User.id'))
+    user_id = Column(Integer, ForeignKey('Users.id'))
     plate = Column(String, nullable=False)
     renavam = Column(BigInteger, nullable=False)
     brand = Column(String, nullable=False)
     model = Column(String, nullable=False)
     vehicle_year = Column(Integer, nullable=False)
+    color = Column(String, nullable=True)
+    chassi_number = Column(String, nullable=False)

@@ -30,5 +30,5 @@ class UserOut(BaseModel):
         from_attributes = True
 
 class UserLogin(BaseModel):
-    email: EmailStr
+    username: EmailStr
     hashed_password: str

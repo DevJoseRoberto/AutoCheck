@@ -95,3 +95,16 @@ body {
     color: red;
     font-weight: 500;
 }
+
+.response{
+    margin-bottom: 10px;
+}
+
+.success{
+    margin-top: 10px;
+}
+
+.error{
+    color: red;
+    margin-top: 10px;
+}

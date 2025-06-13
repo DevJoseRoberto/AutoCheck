@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.responses import RedirectResponse
 from services.auth import get_current_user, get_user, user_is_admin
 from sqlalchemy.orm import Session
 from core.security import create_acess_token
@@ -21,15 +22,16 @@ def get_db():
         db.close()
 
 @auth_router.post("/token", response_model=Token)
-async def login_for_access_token(db: Session = Depends(get_db), form_data: OAuth2PasswordRequestForm = Depends()):
+def login_for_access_token(db: Session = Depends(get_db), form_data: OAuth2PasswordRequestForm = Depends()):
     user = get_user(db, form_data.username)
     if not user or not verify_password(form_data.password, user.hashed_password):
         raise HTTPException(
-            status_code=status.HTTP_401_UNATHOURIZED,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Credenciais incorretas", 
             headers={"WWW-Authenticate": "Bearer"}
         )
     access_token = create_acess_token(data={"sub": user.name, "is_admin": user.is_admin})
-    return {"access_token": access_token, "token_type": "bearer"}
+
+    return {"access_token": f"Bearer {access_token}", "token_type": "bearer"}
 
 

@@ -14,6 +14,8 @@ def created_vehicle(db: Session, vehicle: VehicleCreate):
         brand=vehicle.brand, 
         model=vehicle.model, 
         vehicle_year=vehicle.vehicle_year, 
+        color=vehicle.color,
+        chassi_number=vehicle.chassi_number
         )
     db.add(new_vehicle)
     db.commit()
