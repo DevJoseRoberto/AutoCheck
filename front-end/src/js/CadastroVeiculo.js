@@ -10,6 +10,14 @@ function showNotification(message, type) {
     }, 3000); // Desaparece após 3 segundos
 }
 
+
+window.addEventListener('load', async function getUserData() {
+    if (!localStorage.getItem('token')) {
+        alert('Você precisa estar logado para acessar esta página. Redirecionando para o login...');
+        window.location.href = '/src/pages/login.html';
+        return;
+    }
+})
 // Validação do formulário de cadastro de veículos
 document.getElementById('formCadastroVeiculo')?.addEventListener('submit', async function (e) {
     e.preventDefault(); // Impede o envio para validação

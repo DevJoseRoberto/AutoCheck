@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, status, HTTPException
-from services.user import get_user_by_email, create_user, get_all_users, update_user, delete_user
+from services.user import create_user, get_all_users, update_user, delete_user
 from schemas.user import UserOut
-from core.security import create_acess_token, decode_access_token
 from sqlalchemy.orm import Session
 from db.session import SessionLocal
 from models.user import Users

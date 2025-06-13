@@ -24,11 +24,10 @@ class UserCreate(BaseModel):
 class UserOut(BaseModel):
     name: str
     email: EmailStr
-    id: int
 
     class Config:
         from_attributes = True
 
 class UserLogin(BaseModel):
-    username: EmailStr
+    email: EmailStr
     hashed_password: str

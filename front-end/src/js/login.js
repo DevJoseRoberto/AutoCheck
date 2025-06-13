@@ -11,7 +11,7 @@ loginForm.addEventListener('submit', async (e) => {
     responseDiv.innerHTML = ''
 
     const formData = new URLSearchParams();
-    formData.append('username', email);
+    formData.append('email', email);
     formData.append('password', password);
     try{
         const response = await fetch('/auth/token', {
@@ -24,14 +24,12 @@ loginForm.addEventListener('submit', async (e) => {
             redirect: "follow", // Garante que o navegador siga o redirecionamento
         });
         
-        console.log("Status da resposta:", response.status);
-        console.log("Cabeçalho Location:", response.headers.get("Location"));
-        console.log("Redirecionamento iniciado...");
 
         if (response.ok) {
             const result = await response.json();
-            localStorage.setItem('token', result.access_token);
-            window.location.href = '/src/pages/home.html';
+            token = result.access_token.replace('Bearer ', '');
+            localStorage.setItem('token', token);
+            window.location.href = '/src/pages/loggedhome.html';
             return;
         } else {
             const error = await response.json()
